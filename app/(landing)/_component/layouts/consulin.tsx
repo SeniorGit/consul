@@ -4,25 +4,9 @@ export default function Consulin() {
   return (
     <section className="pt-[50px] bg-white" id="consulin">
       <div className="container mx-auto px-5 md:px-10 lg:px-24 z-10">
-        <div className="flex flex-col lg:flex-row-reverse justify-center items-center lg:items-start">
-          {/* Image Section */}
-          <div className="flex-1 lg:flex lg:justify-center lg:items-center">
-            <div className="overflow-hidden w-full sm:w-[530px] lg:w-[399px] md:rounded-[100px] rounded-[50px] bg-white">
-              <div className="flex pt-[50px]">
-                <Image
-                  src="/images/cansul.png"
-                  sizes="100vw"
-                  width={0}
-                  height={0}
-                  alt="awal"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </div>
-
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start">
           {/* Text Section */}
-          <div className="flex-1 text-left lg:pt-16">
+          <div className="flex-1 text-left lg:pt-16 order-1 lg:order-1"> {/* Set order to 1 for large screens */}
             <h1 className="leading-snug flex flex-col sm:flex-row items-start sm:items-center">
               <span className="bg-[#27374D] text-white text-[20px] sm:text-[25px] font-semibold px-6 py-4 rounded-[20px]">
                 CONSULIN
@@ -39,6 +23,21 @@ export default function Consulin() {
               therapy adapts to your lifestyle, making mental wellness accessible and
               convenient for everyone.
             </p>
+          </div>
+
+          {/* Image Section */}
+          <div className="flex-1 lg:flex lg:justify-center lg:items-center order-2 lg:order-2"> {/* Set order to 2 for large screens */}
+            <div className="overflow-hidden w-full sm:w-[400px] lg:w-[350px] md:rounded-[100px] rounded-[50px] bg-white">
+              <div className="flex pt-[50px] justify-center">
+                <Image
+                  src="/images/cansul.png"
+                  alt="awal"
+                  width={400} // Adjusted width for smaller size
+                  height={225} // Adjusted height to maintain aspect ratio
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import Image from "next/image";
+
 interface CardReasonProps {
   title: string;
   icon: string;
   description: string;
 }
 
+// Define the reasons array
 const reasons: CardReasonProps[] = [
   {
     icon: "/icons/satu.png",
@@ -32,6 +34,7 @@ const reasons: CardReasonProps[] = [
   },
 ];
 
+// Card component for each reason
 const CardReason = ({ icon, title, description }: CardReasonProps) => {
   return (
     <div className="text-center flex flex-col justify-start items-center w-full lg:w-1/4 px-4 mb-8 lg:mb-0">
@@ -44,11 +47,16 @@ const CardReason = ({ icon, title, description }: CardReasonProps) => {
   );
 };
 
+// Main Discover component
 export default function Discover() {
   return (
-    <section className="relative py-16 mt-32 bg-[#27374D]" id="discover">
+    <section
+      className="relative py-16 mt-20 bg-cover bg-[#27374D] bg-center overflow-hidden"
+      id="discover"
+     
+    >
       {/* Services Header */}
-      <div className="absolute top-[10%] right-[5%] font-bold text-right p-8">
+      <div className="absolute top-[10%] right-[5%] font-bold text-right p-8 z-10">
         <h1 className="text-[36px] sm:text-[48px] md:text-[55px] font-semibold text-white drop-shadow-lg">
           <span className="text-blue-500">Our</span> Services
         </h1>
