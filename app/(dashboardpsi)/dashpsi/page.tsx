@@ -1,39 +1,11 @@
-import Image from "next/image"; 
-import Link from "next/link";
+import Image from "next/image";
+import Sidebar from "../navbar";
+import ProfileCard from "../uii/profilcol";
 export default function Dashboardpsi() {
   return (
     <section className="">
       <div className="flex min-h-screen bg-[#d2e2f0] p-5">
-        <div className="w-20 bg-[#27374D] text-white flex flex-col justify-between py-6 rounded-[10px]">
-          <div className="flex flex-col items-center justify-center">
-            <div className="text-[15px] font-semibold">Consulin</div>
-            <div className="space-y-12 items-center pt-[125px]">
-              <div className="cursor-pointer">
-                <Image src="/icons/home.png" alt="Home" width={30} height={30} />
-              </div>
-              <div className="cursor-pointer">
-                <Image src="/icons/people.png" alt="Users" width={24} height={24} />
-              </div>
-              <div className="cursor-pointer">
-                <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} style={{ filter: "brightness(0) invert(1)" }} />
-              </div>
-              <div className="cursor-pointer">
-                <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
-              </div>
-              <div className="cursor-pointer">
-                <Image src="/icons/user.png" alt="Settings" width={24} height={24} />
-              </div>
-              <div className="cursor-pointer">
-                <Image src="/icons/sun.png" alt="Settings" width={24} height={24} />
-              </div>
-            </div>
-          </div>
-            <Link href="/">
-              <div className="cursor-pointer flex flex-col items-center">
-                  <Image src="/icons/exit.png" alt="Exit Icon" width={24} height={24} />
-              </div>
-            </Link>
-        </div>
+        <Sidebar /> {/* Use the Sidebar component here */}
         <main className="flex-1 p-5">
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="py-1 px-20 lg:col-span-2 bg-[#27374D] text-white p-5 rounded-lg flex items-center justify-between">
@@ -49,39 +21,7 @@ export default function Dashboardpsi() {
                 <Image src="/images/user.png" alt="Profile Avatar" width={250} height={250} className="rounded-full" />
               </div>
             </div>
-            <div className="bg-white shadow-lg rounded-lg">
-              <div className="bg-[#27374D] text-white flex justify-between items-center p-4 rounded-t-lg">
-                <h3 className="text-lg font-semibold">My Profile</h3>
-                <div className="flex items-center space-x-2">
-                  <button className="p-2">
-                    <Image src="/icons/chevron-up.png" alt="Chevron Icon" width={26} height={16} />
-                  </button>
-                  <button className="p-2">
-                    <Image src="/icons/edit.png" alt="Edit Icon" width={16} height={16} />
-                  </button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 mt-4 p-4">
-                <Image
-                  src="/images/cewe.png"
-                  alt="Profile Image"
-                  width={70}
-                  height={70}
-                  className="rounded-full"
-                />
-                <div>
-                  <h2 className="text-[18px] font-bold">Isey S.Psi, M.Psi, Psychologist</h2>
-                  <div className="flex items-center space-x-2 mt-2">
-                    <Image src="/icons/location.png" alt="location" width={20} height={16} />
-                    <span className="text-gray-500">Bandung, Jawa Barat</span>
-                  </div>
-                  <div className="mt-2 flex items-center space-x-2 bg-[#B6CBE5] rounded-full px-5 py-2 w-[130px]">
-                    <Image src="/icons/suitcase.png" alt="Experience Icon" width={20} height={16} />
-                    <span className="text-sm font-medium">8 Tahun</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ProfileCard />
           </div>
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 mt-8">
