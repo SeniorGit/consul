@@ -1,5 +1,4 @@
 import Sidebar from "../navbar";
-
 import {
   Table,
   TableBody,
@@ -7,20 +6,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
 export default function Ketersediaan() {
   return (
     <>
-      {/* Responsive Layout */}
       <section className="flex flex-col lg:flex-row min-h-screen bg-[#d2e2f0] p-5 gap-7">
-        {/* Sidebar */}
         <Sidebar />
-
-        {/* Main Content Area */}
+        <div className="lg:hidden mt-[50px]">
+          <Sidebar />
+        </div>
         <div className="flex flex-col lg:flex-row gap-5 flex-1">
-          {/* Column with Both "Availables" Sections */}
           <div className="flex-1 flex flex-col gap-5 lg:flex-cols">
-            {/* First "Availables" Section */}
             <div className="bg-white shadow-lg rounded-lg">
               <div className="bg-[#27374D] text-white p-4 rounded-t-lg">
                 <h3 className="text-xl font-bold">Availables</h3>
@@ -44,8 +39,6 @@ export default function Ketersediaan() {
                 </Table>
               </div>
             </div>
-
-            {/* Second "Availables" Section */}
             <div className="bg-white shadow-lg rounded-lg">
               <div className="bg-[#27374D] text-white p-4 rounded-t-lg">
                 <h3 className="text-xl font-bold">Availables</h3>
@@ -72,8 +65,6 @@ export default function Ketersediaan() {
               </div>
             </div>
           </div>
-
-          {/* My Profile and Set Availability Section */}
           <div className="w-full lg:w-1/4 flex flex-col gap-5">
             <div className="bg-white shadow-lg rounded-lg">
               <div className="bg-[#27374D] text-white p-4 rounded-t-lg">

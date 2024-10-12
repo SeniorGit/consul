@@ -10,7 +10,7 @@ export default function Sidebar() {
 
   return (
     <div>
-      {/* Sidebar for larger screens */}
+      
       <div className="hidden md:flex w-20 bg-[#27374D] text-white flex-col justify-between items-center py-6 rounded-[10px]">
         <div className="flex flex-col items-center">
           <div className="text-[15px] font-semibold mb-6">Consulin</div>
@@ -25,26 +25,26 @@ export default function Sidebar() {
                 <Image src="/icons/people.png" alt="Users" width={24} height={24} />
               </Button>
             </Link>
-            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
-              <Link href='/ketersediaan'>
+            <Link href='/ketersediaan' prefetch={true}>
+              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
-              </Link>
-            </Button>
-            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
-              <Link href='/chat'>
+              </Button>
+            </Link>
+            <Link href='/chatpsi'>
+              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
-              </Link>
-            </Button>
-            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
-              <Link href='/edit'>
+              </Button>
+            </Link>
+            <Link href='/edit'>
+              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/user.png" alt="Settings" width={24} height={24} />
-              </Link>
-            </Button>
-            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
-              <Link href='/'>
+              </Button>
+            </Link>
+            <Link href='/chatpas'>
+              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/sun.png" alt="Settings" width={24} height={24} />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
         <Link href="/">
@@ -78,7 +78,7 @@ export default function Sidebar() {
               <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} />
             </Button>
           </Link>
-          <Link href='/chat' onClick={() => setOpen(false)}>
+          <Link href='/chatpsi' onClick={() => setOpen(false)}>
             <Button className="cursor-pointer flex items-center justify-center w-12 h-12">
               <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
             </Button>
