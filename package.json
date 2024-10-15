@@ -11,9 +11,12 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@pubnub/react-chat-components": "^0.34.0",
+=======
+>>>>>>> parent of 2db09c3 (tambah fitur)
 =======
 >>>>>>> parent of 2db09c3 (tambah fitur)
 =======
@@ -30,8 +33,11 @@
     "next": "^14.2.13",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "pubnub": "^7.6.3",
     "pubnub-react": "^3.0.2",
+=======
+>>>>>>> parent of 2db09c3 (tambah fitur)
 =======
 >>>>>>> parent of 2db09c3 (tambah fitur)
 =======
