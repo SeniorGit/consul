@@ -29,15 +29,21 @@ export default function Sidebar() {
               <Link href='/ketersediaan'>
                 <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
 <<<<<<< HEAD
+<<<<<<< HEAD
               </Button>
             </Link>
             <Link href='/chat'>
               <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
 =======
+=======
+>>>>>>> parent of 2db09c3 (tambah fitur)
               </Link>
             </Button>
             <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
               <Link href='/chat'>
+<<<<<<< HEAD
+>>>>>>> parent of 2db09c3 (tambah fitur)
+=======
 >>>>>>> parent of 2db09c3 (tambah fitur)
                 <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
               </Link>
