@@ -10,7 +10,7 @@ export default function Sidebar() {
 
   return (
     <div>
-      
+      {/* Sidebar for larger screens */}
       <div className="hidden md:flex w-20 bg-[#27374D] text-white flex-col justify-between items-center py-6 rounded-[10px]">
         <div className="flex flex-col items-center">
           <div className="text-[15px] font-semibold mb-6">Consulin</div>
@@ -25,26 +25,33 @@ export default function Sidebar() {
                 <Image src="/icons/people.png" alt="Users" width={24} height={24} />
               </Button>
             </Link>
-            <Link href='/ketersediaan' prefetch={true}>
-              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              <Link href='/ketersediaan'>
                 <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
+<<<<<<< HEAD
               </Button>
             </Link>
             <Link href='/chat'>
               <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+=======
+              </Link>
+            </Button>
+            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              <Link href='/chat'>
+>>>>>>> parent of 2db09c3 (tambah fitur)
                 <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
-              </Button>
-            </Link>
-            <Link href='/edit'>
-              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              </Link>
+            </Button>
+            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              <Link href='/edit'>
                 <Image src="/icons/user.png" alt="Settings" width={24} height={24} />
-              </Button>
-            </Link>
-            <Link href='/chatpas'>
-              <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              </Link>
+            </Button>
+            <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
+              <Link href='/'>
                 <Image src="/icons/sun.png" alt="Settings" width={24} height={24} />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
         <Link href="/">
@@ -78,7 +85,7 @@ export default function Sidebar() {
               <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} />
             </Button>
           </Link>
-          <Link href='/chatpsi' onClick={() => setOpen(false)}>
+          <Link href='/chat' onClick={() => setOpen(false)}>
             <Button className="cursor-pointer flex items-center justify-center w-12 h-12">
               <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
             </Button>
