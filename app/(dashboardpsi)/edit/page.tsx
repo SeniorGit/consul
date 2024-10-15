@@ -117,6 +117,7 @@ export default function Edit() {
               <button className="bg-[#1e2a39] text-white rounded px-4 py-2 mt-5">save changes</button>
             </div>
           </div>
+          <p>halo</p>
         </div>
 
         {/* Availability Section */}
