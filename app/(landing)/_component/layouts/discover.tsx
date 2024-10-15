@@ -5,8 +5,6 @@ interface CardReasonProps {
   icon: string;
   description: string;
 }
-
-// Define the reasons array
 const reasons: CardReasonProps[] = [
   {
     icon: "/icons/satu.png",
@@ -33,41 +31,39 @@ const reasons: CardReasonProps[] = [
       "Engage in real-time chat with our psychologists to get immediate support and guidance whenever you need it. Our secure and confidential chat feature ensures privacy and prompt assistance.",
   },
 ];
-
-// Card component for each reason
 const CardReason = ({ icon, title, description }: CardReasonProps) => {
   return (
-    <div className="text-center flex flex-col justify-start items-center w-full lg:w-1/4 px-4 mb-8 lg:mb-0">
-      <div className="mb-4">
-        <Image src={icon} alt={title} width={100} height={100} />
+    <div className="bg-white rounded-lg shadow-lg text-center flex flex-col justify-start items-center w-full p-6 mb-8 border-[3px] border-blue-300" style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
+      <div className="bg-gray-100 p-3 rounded-full mb-4">
+        <Image src={icon} alt={title} width={50} height={50} />
       </div>
-      <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
-      <p className="text-white text-sm sm:text-base">{description}</p>
+      <h3 className="text-lg font-semibold mb-2 text-black">{title}</h3>
+      <p className="text-gray-600 text-sm sm:text-base">{description}</p>
     </div>
   );
 };
-
-// Main Discover component
 export default function Discover() {
   return (
-    <section
-      className="relative py-16 mt-20 bg-cover bg-[#27374D] bg-center overflow-hidden"
-      id="discover"
-     
-    >
-      {/* Services Header */}
-      <div className="absolute top-[10%] right-[5%] font-bold text-right p-8 z-10">
-        <h1 className="text-[36px] sm:text-[48px] md:text-[55px] font-semibold text-white drop-shadow-lg">
-          <span className="text-blue-500">Our</span> Services
+    <section className="relative py-16 bg-gray-50" id="discover">
+      <div className="text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl font-semibold">
+          Top{" "}
+          <span
+            className="text-transparent bg-clip-text"
+            style={{
+              backgroundImage: "linear-gradient(90deg, #00B4DB, #0083B0)",
+            }}
+          >
+            Services
+          </span>{" "}
+          we offer
         </h1>
-        <p className="text-white mt-4 text-[18px] sm:text-[24px] md:text-[27px] font-semibold">
+        <p className="text-gray-500 mt-4 text-lg">
           Discover the various services we offer to support your mental health journey!
         </p>
       </div>
-
-      {/* Card Section */}
-      <div className="container mx-auto px-5 md:px-24 z-10 pt-[250px]">
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-8 mt-12">
+      <div className="container mx-auto px-5 md:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {reasons.map((reason, index) => (
             <CardReason
               key={index}

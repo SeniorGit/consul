@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link"; 
 import Navimg from "@/app/(landing)/_component/layouts/navimg";
+import ContactSection from "@/app/(landing)/_component/layouts/kontak";
 export default function Role() {
   return (
     <section className="pt-[50px]" id="Role">
@@ -41,14 +42,7 @@ export default function Role() {
           </div>
         </div>
       </div>
-      <div className="relative mt-9"> 
-        <div className="w-full h-[100px] bg-[#27374D] relative overflow-hidden p-5">
-          <div className="absolute bottom-0 w-full h-[200px] bg-[#27374D] rounded-t-full"></div>
-        </div>
-        <div className="absolute bottom-0 w-full text-center text-white pb-4">
-          <p>© 2024 Consulin. All rights reserved.</p>
-        </div>
-      </div>
+      <ContactSection />
     </section>
   );
 }

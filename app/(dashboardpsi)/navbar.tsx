@@ -30,7 +30,7 @@ export default function Sidebar() {
                 <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
               </Button>
             </Link>
-            <Link href='/chatpsi'>
+            <Link href='/chat'>
               <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-[#27374D] hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
               </Button>
