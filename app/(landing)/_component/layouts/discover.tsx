@@ -6,28 +6,28 @@ interface CardReasonProps {
   description: string;
 }
 
-// Define the reasons array
+
 const reasons: CardReasonProps[] = [
   {
-    icon: "/icons/satu.png",
+    icon: "/icons/dua.png",
     title: "AI Detection",
     description:
       "Our AI technology helps in the early detection of mental health issues by analyzing your responses and providing an initial assessment of stress, anxiety, and depression levels.",
   },
   {
-    icon: "/icons/dua.png",
+    icon: "/icons/empat.png",
     title: "Book an Appointment",
     description:
       "Easily book an appointment with our professional psychologists at a time that suits you. Our platform ensures a seamless booking experience.",
   },
   {
-    icon: "/icons/tiga.png",
+    icon: "/icons/satu.png",
     title: "Set Availability",
     description:
       "Psychologists can set their availability, making it convenient for patients to find and book sessions according to the psychologist's schedule.",
   },
   {
-    icon: "/icons/empat.png",
+    icon: "/icons/tiga.png",
     title: "Chat Real-Time",
     description:
       "Engage in real-time chat with our psychologists to get immediate support and guidance whenever you need it. Our secure and confidential chat feature ensures privacy and prompt assistance.",
@@ -37,12 +37,14 @@ const reasons: CardReasonProps[] = [
 // Card component for each reason
 const CardReason = ({ icon, title, description }: CardReasonProps) => {
   return (
-    <div className="text-center flex flex-col justify-start items-center w-full lg:w-1/4 px-4 mb-8 lg:mb-0">
-      <div className="mb-4">
-        <Image src={icon} alt={title} width={100} height={100} />
+    <div className="flex flex-col md:flex-row items-center md:items-center bg-white shadow-md border-[5px] border-blue-200 rounded-lg p-4 md:p-6 w-full gap-4 md:gap-6">
+      <div className="flex-shrink-0 md:w-16 md:h-16 bg-[#CDD7E3] rounded">
+        <Image src={icon} alt={title} width={64} height={64} className="w-16 h-16" />
       </div>
-      <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
-      <p className="text-white text-sm sm:text-base">{description}</p>
+      <div className="text-left">
+        <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-sm md:text-base text-gray-600">{description}</p>
+      </div>
     </div>
   );
 };
@@ -50,31 +52,22 @@ const CardReason = ({ icon, title, description }: CardReasonProps) => {
 // Main Discover component
 export default function Discover() {
   return (
-    <section
-      className="relative py-16 mt-20 bg-cover bg-[#27374D] bg-center overflow-hidden"
-      id="discover"
-     
-    >
+    <section className="relative py-16 bg-white overflow-hidden" id="discover">
       {/* Services Header */}
-      <div className="absolute top-[10%] right-[5%] font-bold text-right p-8 z-10">
-        <h1 className="text-[36px] sm:text-[48px] md:text-[55px] font-semibold text-white drop-shadow-lg">
-          <span className="text-blue-500">Our</span> Services
+      <div className="text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
+          Top <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Services</span> we offer
         </h1>
-        <p className="text-white mt-4 text-[18px] sm:text-[24px] md:text-[27px] font-semibold">
+        <p className="text-gray-700 mt-4 text-lg sm:text-xl">
           Discover the various services we offer to support your mental health journey!
         </p>
       </div>
 
       {/* Card Section */}
-      <div className="container mx-auto px-5 md:px-24 z-10 pt-[250px]">
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-8 mt-12">
+      <div className="container mx-auto px-5 md:px-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {reasons.map((reason, index) => (
-            <CardReason
-              key={index}
-              icon={reason.icon}
-              title={reason.title}
-              description={reason.description}
-            />
+            <CardReason key={index} icon={reason.icon} title={reason.title} description={reason.description} />
           ))}
         </div>
       </div>
