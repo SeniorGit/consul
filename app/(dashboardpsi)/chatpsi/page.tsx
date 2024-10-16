@@ -1,150 +1,111 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import PubNub from 'pubnub';
-import { PubNubProvider, usePubNub } from 'pubnub-react';
-import { Chat, MessageList, MessageInput } from "@pubnub/react-chat-components";
 
-// Message type
 interface Message {
   text: string;
   sender: string;
 }
 
-// PubNub initialization for the Doctor
 const pubnub = new PubNub({
   publishKey: 'pub-c-f9cb07fb-86cb-488d-986a-4613c3a7b26e',
   subscribeKey: 'sub-c-9005caf0-220e-4360-9b5e-ccb4e4fb33e0',
-  uuid: 'doctor-uuid',
+  uuid: 'doctor-uuid', // Unique identifier for doctor
 });
 
-const DoctorChatApp: React.FC = () => {
-  return (
-    <PubNubProvider client={pubnub}>
-      <div className="flex h-screen">
-        <ConversationsPanel />
-        <ChatWindow userRole="Doctor" />
-        <DetailsPanel />
-      </div>
-    </PubNubProvider>
-  );
-};
-
-const ConversationsPanel: React.FC = () => {
-  return (
-    <div className="w-1/4 p-4 bg-gray-200">
-      <h2 className="text-lg font-bold">Messages</h2>
-      <input
-        type="text"
-        placeholder="Search"
-        className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
-      />
-      {/* Mock conversation */}
-      <div className="flex items-center p-2 mt-4 bg-white rounded-lg shadow-sm">
-        <img
-          src="https://via.placeholder.com/40"
-          alt="Patient"
-          className="rounded-full"
-        />
-        <div className="ml-2">
-          <p className="font-bold">Patient Name</p>
-          <p className="text-sm text-gray-600">Hello 👋</p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ChatWindow: React.FC<{ userRole: string }> = ({ userRole }) => {
-  const pubnub = usePubNub();
+const DoctorChat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState<string>("");
+  const [input, setInput] = useState('');
 
   useEffect(() => {
-    const handleMessage = (event: { message: Message }) => {
-      setMessages((msgs) => [...msgs, event.message]);
+    const listener = {
+      message: (event: { message: Message }) => {
+        if (event.message.sender !== 'Doctor') {
+          setMessages((prevMessages) => [...prevMessages, event.message]);
+        }
+      },
     };
 
+    pubnub.addListener(listener);
     pubnub.subscribe({ channels: ['doctor-patient-chat'] });
-    pubnub.addListener({ message: handleMessage });
 
-    // Cleanup function to remove the listener and unsubscribe
     return () => {
+      pubnub.removeListener(listener);
       pubnub.unsubscribeAll();
-      pubnub.removeListener({ message: handleMessage });
     };
-  }, [pubnub]);
+  }, []);
 
-  const sendMessage = () => {
-    if (inputValue.trim().length > 0) {
-      const message: Message = {
-        text: inputValue,
-        sender: userRole,
-      };
+  const handleSend = () => {
+    const newMessage = { text: input, sender: 'Doctor' };
 
-      pubnub.publish({
-        channel: 'doctor-patient-chat',
-        message: message,
-      });
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
 
-      // Clear the input field after sending
-      setInputValue("");
-    }
+    pubnub.publish({
+      channel: 'doctor-patient-chat',
+      message: newMessage,
+    });
+
+    setInput('');
   };
 
   return (
-    <div className="w-1/2 p-4 bg-white flex flex-col">
-      <div className="flex-grow overflow-y-auto border-t border-b">
-        {messages.map((msg, index) => (
-          <p
-            key={index}
-            className={`p-2 ${
-              msg.sender === userRole ? 'bg-blue-100 text-right' : 'bg-green-100 text-left'
-            } rounded-lg mb-2`}
-          >
-            <strong>{msg.sender}:</strong> {msg.text}
-          </p>
-        ))}
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-1/4 bg-white p-4 border-r">
+        <div className="text-lg font-bold mb-4 flex items-center">
+          <span>Messages</span>
+        </div>
+        <div className="bg-blue-100 p-3 rounded-lg flex items-center mb-4">
+          <img src="https://via.placeholder.com/40" alt="Profile" className="rounded-full w-10 h-10 mr-3"/>
+          <div>
+            <p className="font-semibold">Alvito</p>
+            <p className="text-gray-500 text-sm">Halo 👋</p>
+          </div>
+        </div>
       </div>
-      {/* Input field for sending messages */}
-      <div className="flex items-center mt-2">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              sendMessage();
-            }
-          }}
-          placeholder="Type your message..."
-          className="w-full p-2 border rounded"
-        />
-        <button
-          onClick={sendMessage}
-          className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Send
-        </button>
+
+      {/* Main Chat Window */}
+      <div className="flex-1 flex flex-col p-4 bg-gray-50">
+        {/* Chat Header */}
+        <div className="flex items-center justify-between bg-blue-200 p-4 rounded-lg mb-4">
+          <div className="font-semibold text-lg">Alvito</div>
+        </div>
+        
+        {/* Messages */}
+        <div className="flex-1 overflow-y-auto p-4">
+          {messages.map((msg, index) => (
+            <div key={index} className={`p-3 rounded-lg mb-2 max-w-lg ${
+              msg.sender === 'Doctor' ? 'bg-blue-600 text-white ml-auto' : 'bg-blue-100 text-black mr-auto'
+            }`}>
+              {msg.text}
+            </div>
+          ))}
+        </div>
+
+        {/* Input Box */}
+        <div className="flex items-center bg-white p-2 rounded-lg shadow mt-4">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type your message..."
+            className="flex-1 p-2 outline-none"
+          />
+          <button onClick={handleSend} className="bg-blue-600 text-white p-2 rounded-lg ml-2">
+            ➤
+          </button>
+        </div>
       </div>
-    </div>
-  );
-};
-const DetailsPanel: React.FC = () => {
-  return (
-    <div className="w-1/4 p-4 bg-gray-100">
-      <h2 className="text-lg font-bold">Details</h2>
-      <div className="flex flex-col items-center mt-4">
-        <img
-          src="https://via.placeholder.com/80"
-          alt="Patient"
-          className="rounded-full"
-        />
-        <p className="mt-2 font-bold">Patient Name</p>
-        <p className="text-sm">Patient Info</p>
-        <p className="text-sm text-gray-500">Location, etc.</p>
+
+      {/* User Details */}
+      <div className="w-1/4 bg-white p-4 border-l flex flex-col items-center">
+        <button className="self-end text-gray-400">✕</button>
+        <img src="https://via.placeholder.com/100" alt="Profile" className="rounded-full w-24 h-24 mt-4"/>
+        <h3 className="text-xl font-semibold mt-4">Alvito</h3>
+        <p className="text-gray-500 mt-2">0813899776543</p>
+        <p className="text-gray-500 mt-1">Bandung, Jawa Barat</p>
       </div>
     </div>
   );
 };
 
-export default DoctorChatApp;
+export default DoctorChat;
