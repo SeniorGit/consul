@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import PubNub from 'pubnub';
+import Sidebar from '../../navbar';
 
 interface Message {
   text: string;
@@ -49,8 +50,9 @@ const DoctorChat: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 gap-7">
       {/* Sidebar */}
+      <Sidebar />
       <div className="w-1/4 bg-white p-4 border-r">
         <div className="text-lg font-bold mb-4 flex items-center">
           <span>Messages</span>

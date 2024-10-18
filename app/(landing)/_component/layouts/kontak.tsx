@@ -17,15 +17,15 @@ export default function ContactSection() {
       </section>
       <div className="bg-[#27374D] text-white py-16 relative">
         <div className="absolute top-0 left-0 w-[120px] h-[120px]">
-          <Image src="/images/curve-left.png" alt="Left Decorative Curve" width={120} height={120} />
+          <Image src="/icons/kiri.png" alt="Left Decorative Curve" width={500} height={500} />
         </div>
         <div className="absolute top-0 right-0 w-[120px] h-[120px]">
-          <Image src="/images/curve-right.png" alt="Right Decorative Curve" width={120} height={120} />
+          <Image src="/icons/kanan.png" alt="Right Decorative Curve" width={500} height={500} />
         </div>
         <div className="container mx-auto flex flex-col lg:flex-row justify-between px-5 lg:px-24">
           <div className="flex flex-col items-center lg:items-start mb-10 lg:mb-0">
             <div className="flex items-center">
-              <Image src="/images/logo.png" alt="Consulin Logo" width={80} height={80} />
+              <Image src="/images/logo2.png" alt="Consulin Logo" width={80} height={80} />
               <h3 className="text-xl font-semibold ml-4">Consulin</h3>
             </div>
             <p className="text-gray-400 text-sm mt-2 text-center lg:text-left">

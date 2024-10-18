@@ -1,107 +1,175 @@
-'use client'
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Sidebar from "../navbar";
-import ProfileCard from "../uii/profilcol";
-
+'use client';
+import Image from 'next/image';
+import Sidebar from '../navbar'; // Assuming you have a sidebar component already
+import { Availability } from '../uii/avai';
+import React from 'react';
+import DonutChart from '../uii/dunutchart';
+import ProfileCard from '../uii/profilcol';
+import Link from 'next/link';
 export default function Dashboardpsi() {
-  const [currentTime, setCurrentTime] = useState("");
-  const [greeting, setGreeting] = useState("");
-
-  useEffect(() => {
-    const updateTimeAndGreeting = () => {
-      const now = new Date();
-      const hour = now.getHours();
-
-      // Dynamic greeting logic
-      const wish = `Good ${(hour < 12 && 'Morning') || (hour < 17 && 'Afternoon') || 'Evening'}`;
-
-      // Update greeting
-      setGreeting(wish);
-
-      // Date and time formatting
-      const optionsw = {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
-      };
-      const formattedTime = now.toLocaleDateString("en-GB", optionsw);
-      setCurrentTime(formattedTime);
-    };
-
-    updateTimeAndGreeting();
-    const timer = setInterval(updateTimeAndGreeting, 1000); // Update time every second
-
-    return () => clearInterval(timer); // Cleanup on component unmount
-  }, []);
-
   return (
-    <section className="flex min-h-screen bg-[#d2e2f0] p-5">
-      {/* Sidebar */}
-      <div className="sm:block w-20 md:w-24 lg:w-20 h-full">
-        {/* Hide sidebar on small screens */}
-        <Sidebar />
-      </div>
+    <section className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 gap-7">
+      <Sidebar/>
 
       {/* Main Content */}
-      <main className="w-full sm:flex-1 p-5 h-full mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div className="py-4 px-4 md:px-10 lg:px-20 lg:col-span-2 bg-[#27374D] text-white p-5 rounded-lg flex flex-col lg:flex-row items-center justify-between">
+      <main className="flex-1 p-6 flex flex-col lg:flex-row lg:gap-6 gap-6">
+        {/* Left Side: Good Morning Section and Appointments */}
+        <div className="lg:w-2/3 w-full space-y-6">
+          {/* Good Morning Section */}
+          <h2 className="text-xl font-bold mb-4">Dashboard Psychologist</h2>
+          <div className="bg-gradient-to-r from-[#264065] to-[#B6CBE5] text-white p-6 rounded-lg flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">{greeting} 👋</h1>
-              <p className="mt-2 md:mt-4">Welcome Isey S.Psi, M.Psi, Psychologist</p>
-              <div className="mt-4 md:mt-6 text-black text-sm bg-[#B6CBE5] rounded-[5px] p-2 inline-flex items-center">
-                <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} className="inline-block mr-2" />
-                {currentTime}
+              <h1 className="text-3xl font-bold">Good Morning 👋</h1>
+              <p className="mt-2">
+                Have a nice day and don't forget to take care of your health!
+              </p>
+              <div className="flex items-center space-x-2 mt-2">
+                <Image src="/icons/location.png" alt="Location Icon" width={20} height={16} />
+                <span className="text-white text-sm">Bandung, Jawa Barat</span>
               </div>
             </div>
-            <div className="mt-6 lg:mt-0">
-              <Image src="/images/user.png" alt="Profile Avatar" width={150} height={150} className="rounded-full lg:w-[250px] lg:h-[250px]" />
+            <div>
+              <Image
+                src="/images/cewe.png"
+                alt="Profile"
+                width={70}
+                height={70}
+                className="rounded-full"
+              />
             </div>
           </div>
-          <ProfileCard />
+
+          {/* Your Appointment Section */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">Your Appointment</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {/* Patient Card */}
+              <Link href="/dashpsi/jadwal">
+                <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center justify-center border-[2px] border-blue-200">
+                  <div>
+                    <h3 className="font-semibold text-lg text-center">Patient</h3>
+                    <div className="flex items-center justify-center">
+                      <DonutChart />
+                    </div>
+                    <p className="text-blue-500 text-center mt-2">20 Patients</p>
+                  </div>
+                </div>
+              </Link>
+
+             <Link href="/dashpsi/jadwal">
+                <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center justify-center border-[2px] border-blue-200">
+                  <div>
+                    <h3 className="font-semibold text-lg text-center">Scheduled</h3>
+                    <div className="flex items-center justify-center mt-2">
+                      <Image src="/icons/jam.png" alt="Scheduled" width={80} height={80} />
+                    </div>
+                    <p className="text-blue-500 text-center mt-2">18 Patients</p>
+                  </div>
+                </div>
+             </Link>
+
+              <Link href="/dashpsi/jadwal">
+                <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center justify-center border-[2px] border-blue-200">
+                  <div>
+                    <h3 className="font-semibold text-lg text-center">Completed</h3>
+                    <div className="flex items-center justify-center mt-2">
+                      <Image src="/icons/cek.png" alt="Completed" width={80} height={80} />
+                    </div>
+                    <p className="text-blue-500 text-center mt-2">2 Patients</p>
+                  </div>
+                </div>
+             </Link>
+            </div>
+          </div>
+
+          {/* Patient Cards Section */}
+          <div>
+            {/* Show More Section */}
+            <div className="flex justify-start mb-4">
+              <button className="text-blue-600 font-semibold">Show more</button>
+            </div>
+
+            {/* First Appointment - Alvito */}
+            <div className="bg-[#D9E3F3] text-black shadow-lg rounded-lg p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+              {/* Date Tag */}
+              <div className="flex items-center space-x-2">
+                <div className="bg-[#264065] text-white rounded-l-full p-2 px-4">
+                  <p className="font-semibold">12 Okt</p>
+                </div>
+
+                {/* Profile Picture */}
+                <div className="rounded-full overflow-hidden w-12 h-12">
+                  <img src="/images/cewe.png" alt="Alvito" className="object-cover w-full h-full" />
+                </div>
+
+                {/* Patient Information */}
+                <div>
+                  <h3 className="text-lg font-semibold">Alvito</h3>
+                  <p>Bandung, Jawa Barat</p>
+                </div>
+              </div>
+
+              {/* Accept/Reject Buttons */}
+              <div className="flex space-x-2">
+                <button className="bg-green-500 rounded-full p-2 text-white w-[40px]">✔</button>
+              </div>
+
+              {/* Appointment Time */}
+              <div>
+                <p>9:00 AM - 12:00 PM</p>
+              </div>
+
+              {/* View Details Button */}
+              <div>
+                <Link href="/dashpsi/chatpsi">
+                  <button className="bg-[#264065] text-white px-4 py-2 rounded-lg">Chat Now!</button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Second Appointment - Faiz */}
+            <div className="mt-4 bg-white text-black shadow-lg rounded-lg p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+              {/* Date Tag */}
+              <div className="flex items-center space-x-2">
+                <div className="bg-[#4C82CB] text-white rounded-l-full p-2 px-4">
+                  <p className="font-semibold">12 Okt</p>
+                </div>
+
+                {/* Profile Picture */}
+                <div className="rounded-full overflow-hidden w-12 h-12">
+                  <img src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
+                </div>
+
+                {/* Patient Information */}
+                <div>
+                  <h3 className="text-lg font-semibold">Faiz</h3>
+                  <p>Bandung, Jawa Barat</p>
+                </div>
+              </div>
+
+              {/* Accept/Reject Buttons */}
+              <div className="flex space-x-2">
+                <button className="bg-green-500 rounded-full p-2 text-white w-[40px]">✔</button>
+                <button className="bg-red-500 rounded-full p-2 text-white w-[40px]">✖</button>
+              </div>
+
+              {/* Appointment Time */}
+              <div>
+                <p>8:00 AM - 9:00 PM</p>
+              </div>
+
+              {/* View Details Button */}
+              <div>
+                <button className="bg-[#264065] text-white px-4 py-2 rounded-lg">View Details!</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-5">
-          <div className="lg:col-span-2 mt-8">
-            <div className="bg-white shadow-lg rounded-lg">
-              <div className="bg-[#27374D] text-white p-4 rounded-[10px]">
-                <h3 className="text-lg md:text-xl font-bold">Your Appointment</h3>
-              </div>
-              <div className="flex flex-col md:flex-row justify-between p-5 space-y-4 md:space-y-0 md:space-x-4">
-                <div className="flex flex-col items-center">
-                  <div className="p-2 inline-flex">
-                    <Image src="/icons/pep.png" alt="Patient Icon" width={50} height={50} className="md:w-[65px] md:h-[65px]" />
-                    <span className="font-semibold text-[16px] md:text-[20px] ml-2 md:ml-3">
-                      Patient
-                      <p>0</p>
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="p-2 inline-flex">
-                    <Image src="/icons/ti.png" alt="Scheduled Icon" width={50} height={50} className="md:w-[65px] md:h-[65px]" />
-                    <span className="font-semibold text-[16px] md:text-[20px] ml-2 md:ml-3">
-                      Scheduled
-                      <p>0</p>
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="p-2 inline-flex">
-                    <Image src="/icons/cek.png" alt="Completed Icon" width={50} height={50} className="md:w-[65px] md:h-[65px]" />
-                    <span className="font-semibold text-[16px] md:text-[20px] ml-2 md:ml-3">
-                      Completed
-                      <p>0</p>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Right Side: Profile and Set Availability */}
+        <div className="lg:w-1/3 w-full space-y-6">
+          <ProfileCard />
+          <Availability />
         </div>
       </main>
     </section>
