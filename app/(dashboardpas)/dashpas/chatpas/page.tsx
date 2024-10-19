@@ -1,8 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import PubNub from 'pubnub';
-import hexoid from 'hexoid';
-
+import Image from 'next/image';
 interface Message {
   text: string;
   sender: string;
@@ -54,7 +53,7 @@ const PatientChat: React.FC = () => {
       <div className="w-1/4 bg-white p-4 border-r">
         <div className="text-lg font-bold mb-4">Messages</div>
         <div className="flex items-center p-2 bg-blue-100 rounded-lg cursor-pointer mb-4">
-          <img
+          <Image
             src="https://via.placeholder.com/50"
             alt="Profile"
             className="rounded-full w-12 h-12 mr-3"
@@ -71,7 +70,7 @@ const PatientChat: React.FC = () => {
         {/* Chat Header */}
         <div className="flex items-center justify-between mb-4 bg-white p-4 rounded-lg shadow-sm">
           <div className="flex items-center space-x-3">
-            <img
+            <Image
               src="https://via.placeholder.com/40"
               alt="Profile"
               className="rounded-full"
@@ -125,7 +124,7 @@ const PatientChat: React.FC = () => {
       {/* Profile Details */}
       <div className="w-1/4 bg-white p-6 border-l flex flex-col items-center">
         <button className="self-end text-gray-400 p-2">X</button>
-        <img
+        <Image
           src="https://via.placeholder.com/100"
           alt="Profile"
           className="rounded-full w-24 h-24 mt-4"

@@ -37,7 +37,7 @@ export default function Dashboardpas() {
                     <p className="font-semibold">12 Okt</p>
                   </div>
                   <div className="rounded-full overflow-hidden w-12 h-12">
-                    <img src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
+                    <Image src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Isey S.Psi, M.Psi. Psikolog</h3>
@@ -58,7 +58,7 @@ export default function Dashboardpas() {
                     <p className="font-semibold">12 Okt</p>
                   </div>
                   <div className="rounded-full overflow-hidden w-12 h-12">
-                    <img src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
+                    <Image src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Pito S.Psi, M.Psi. Psikolog</h3>
