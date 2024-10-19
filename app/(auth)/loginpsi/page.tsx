@@ -24,9 +24,9 @@ export default function Login() {
       <div className="flex flex-col items-center justify-center w-full lg:flex-row mt-20 lg:mt-0 p-6 md:p-10 lg:px-24">
         
         {/* Left Side - Welcome Text */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0"> {/* Added margin-bottom for better spacing on small screens */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Have a nice day and don't forget to take care of your health!
+            Have a nice day and don&apos;t forget to take care of your health!
           </h1>
           <p className="text-lg lg:text-xl text-white mb-4">
             Start your new journey!
@@ -44,7 +44,7 @@ export default function Login() {
         <div className="w-full lg:w-1/2 shadow-lg rounded-lg p-6 md:p-8 lg:p-10 z-10">
           <h1 className="text-3xl lg:text-4xl font-bold text-left text-white">Welcome Back 👋</h1>
           <p className="text-left mb-4 font-semibold text-white">
-            Don't have an account? <Link href="/regispsi" className="text-[#E11C1C]">Register!</Link>
+            Don&apos;t have an account? <Link href="/regispsi" className="text-[#E11C1C]">Register!</Link>
           </p>
           <form className="space-y-4">
             <div>

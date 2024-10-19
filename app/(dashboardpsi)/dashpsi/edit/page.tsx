@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Sidebar from '../../navbar';
 import { Switch } from '@/components/ui/switch';
@@ -12,9 +12,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Edit() {
-  // State to manage form data
   const [profile, setProfile] = useState({
     name: 'Iseey',
     strNumber: '11223344-556677',
@@ -24,7 +24,6 @@ export default function Edit() {
     specializations: ['Stress', 'Trauma', 'Anxiety'],
   });
 
-  // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setProfile((prevProfile) => ({
@@ -33,11 +32,8 @@ export default function Edit() {
     }));
   };
 
-  const [isAvailable, setIsAvailable] = useState(true); // Available is true by default
-
   return (
     <section className="flex flex-col lg:flex-row min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% p-5 gap-7">
-      {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
@@ -49,11 +45,13 @@ export default function Edit() {
           </div>
           <div className="flex flex-col lg:flex-row items-start gap-5 p-10">
             {/* Profile Picture */}
-            <div className="relative flex flex-col items-center justify-center w-full sm:w-auto"> {/* Centered on small screens */}
-              <img
+            <div className="relative flex flex-col items-center justify-center w-full sm:w-auto">
+              <Image
                 src="/images/cewe.png"
                 alt="Profile"
-                className="rounded-full w-32 h-32 object-cover border border-gray-300"
+                width={128}
+                height={128}
+                className="rounded-full object-cover border border-gray-300"
               />
               <button className="mt-4 bg-[#27374D] text-sm text-white rounded-[5px] px-3 py-1">
                 Change Photo

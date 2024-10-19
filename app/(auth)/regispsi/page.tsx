@@ -25,7 +25,7 @@ export default function Registerpsi() {
       {/* Main Content: Stacked for sm and md screens */}
       <div className="flex flex-col items-left justify-center w-full lg:w-1/2 p-6 md:p-10 lg:px-20 mt-24 lg:mt-0 text-center lg:text-left">
         <h1 className="text-2xl lg:text-4xl font-bold text-white leading-snug lg:leading-normal">
-          Have a nice day and don't forget to take care of your health!
+          Have a nice day and don&apos;t forget to take care of your health!
         </h1>
         <p className="text-lg lg:text-xl text-white mt-4 lg:mt-2">
           Start your new journey!

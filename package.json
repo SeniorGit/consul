@@ -29,7 +29,7 @@
     "fs-extra": "^11.2.0",
     "hamburger-react": "^2.5.1",
     "lucide-react": "^0.446.0",
-    "next": "^14.2.13",
+    "next": "^14.2.15",
     "next-themes": "^0.3.0",
     "pubnub": "^7.6.3",
     "pubnub-react": "^3.0.2",

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import PubNub from 'pubnub';
 import Image from 'next/image';
+
 interface Message {
   text: string;
   sender: string;
@@ -56,7 +57,9 @@ const PatientChat: React.FC = () => {
           <Image
             src="https://via.placeholder.com/50"
             alt="Profile"
-            className="rounded-full w-12 h-12 mr-3"
+            width={50}
+            height={50}
+            className="rounded-full"
           />
           <div>
             <p className="font-semibold">Isey S.Psi, M.Psi. Psikolog</p>
@@ -73,6 +76,8 @@ const PatientChat: React.FC = () => {
             <Image
               src="https://via.placeholder.com/40"
               alt="Profile"
+              width={40}
+              height={40}
               className="rounded-full"
             />
             <div className="font-semibold text-lg">Isey S.Psi, M.Psi. Psikolog</div>
@@ -127,7 +132,9 @@ const PatientChat: React.FC = () => {
         <Image
           src="https://via.placeholder.com/100"
           alt="Profile"
-          className="rounded-full w-24 h-24 mt-4"
+          width={100}
+          height={100}
+          className="rounded-full mt-4"
         />
         <h3 className="text-xl font-semibold mt-4">Isey S.Psi, M.Psi. Psikolog</h3>
         <p className="text-gray-500 mt-2">Psikolog Klinis Dewasa</p>
