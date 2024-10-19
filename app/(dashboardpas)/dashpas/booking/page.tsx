@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Sidebar from "../navbar";
+import Sidebar from "../../navbar";
 
 export default function Booking() {
   return (

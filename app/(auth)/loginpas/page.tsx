@@ -2,75 +2,78 @@ import { Button } from "@/components/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Loginpas() {
+export default function Login() {
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-50" id="regispsi">
+    <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-cover bg-center" id="loginPage"
+      style={{
+        backgroundImage: `url(/images/bgpas.png)`, // Set your background image here
+      }}>
+      
       {/* Back Button and Logo */}
       <div className="absolute top-0 left-0 m-6 flex items-center space-x-4 z-10">
-        <Image src="/images/logo.png" alt="Logo" width={60} height={60} className="mr-2" />
+        <Image src="/images/logo2.png" alt="Logo" width={60} height={60} className="mr-2" />
         <Link href="/rolelog">
-          <Button className="bg-transparent text-black font-bold hover:bg-blue-100 rounded-3xl text-sm flex items-center">
-            <Image src="/icons/arrow-down.png" alt="Back arrow" width={24} height={24} className="mr-2" />
+          <Button className="bg-transparent text-white font-bold hover:bg-blue-100 rounded-3xl text-sm flex items-center">
+            <Image src="/icons/arrow-down.png" alt="Back arrow" width={24} height={24} className="mr-2 text-white" />
             Back
           </Button>
         </Link>
       </div>
 
-      {/* Form and Image Container */}
-      <div className="flex flex-col lg:flex-row items-stretch w-full lg:max-w-7xl p-6 md:p-10 lg:px-24 mx-auto min-h-screen mt-20 lg:mt-0 h-[600px]">
-        {/* Form Section */}
-        <div className="justify-center w-full lg:w-1/2 flex flex-col space-y-4 lg:space-y-6 bg-white shadow-lg rounded-lg p-6 md:p-8 lg:p-10 h-full flex-grow">
-          <h1 className="text-2xl lg:text-3xl font-semibold text-center">Welcome Back 👋🏼</h1>
-          <p className="text-center mb-4">
-            Don't have an account? <a href="/regispas" className="text-[#E11C1C]">Register!</a>
+      {/* Main content wrapper to ensure everything is stacked properly on small and medium screens */}
+      <div className="flex flex-col items-center justify-center w-full lg:flex-row mt-20 lg:mt-0 p-6 md:p-10 lg:px-24">
+        
+        {/* Left Side - Welcome Text */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0"> {/* Added margin-bottom for better spacing on small screens */}
+          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          Welcome back. Enter your safe space and let your worries melt away.
+          </h1>
+          <Link href="/regispas">
+            <button className="w-[200px] bg-[#4C82CB] text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition duration-300">
+              Register
+            </button>
+          </Link>
+        </div>
+
+        {/* Right Side - Login Form */}
+        <div className="w-full lg:w-1/2 shadow-lg rounded-lg p-6 md:p-8 lg:p-10 z-10">
+          <h1 className="text-3xl lg:text-4xl font-bold text-left text-white">Welcome Back 👋</h1>
+          <p className="text-left mb-4 font-semibold text-white">
+            Don't have an account? <Link href="/regispas" className="text-[#E11C1C]">Register!</Link>
           </p>
           <form className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold">Name</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold">Email</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-white">Email</label>
               <input
                 type="email"
                 id="email"
-                placeholder="Enter your Email"
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your email"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold">Password</label>
+              <label htmlFor="password" className="block text-sm font-semibold text-white">Password</label>
               <input
                 type="password"
                 id="password"
-                placeholder="Enter your Password"
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your password"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
 
-            {/* Right-Aligned Register Button */}
+            {/* Login Button */}
             <div className="flex justify-end">
               <Link href="/dashpas">
-              <button type="submit" className="w-[200px] bg-[#E8F0FE] text-[#4C82CB] py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
-                Login
-              </button>
+                <Button
+                  type="submit"
+                  className="w-[200px] bg-[#4C82CB] text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition duration-300">
+                  Login
+                </Button>
               </Link>
             </div>
           </form>
-        </div>
-
-        {/* Illustration Section in a Column */}
-        <div className="hidden lg:flex lg:w-1/2 flex-col justify-center items-center bg-[#B6CBE5] px-5 md:px-10 lg:px-20 rounded-lg h-full flex-grow">
-          <Image src="/images/Group 80.png" alt="Illustration 1" width={300} height={300} className="max-w-full h-auto mb-4" />
-          <Image src="/images/Group 81.png" alt="Illustration 2" width={300} height={300} className="max-w-full h-auto" />
         </div>
       </div>
     </section>
