@@ -8,19 +8,19 @@ interface Message {
   sender: string;
 }
 
-const pubnub = new PubNub({
-  publishKey: 'pub-c-f9cb07fb-86cb-488d-986a-4613c3a7b26e',
-  subscribeKey: 'sub-c-9005caf0-220e-4360-9b5e-ccb4e4fb33e0',
-  uuid: 'patient-uuid', // Unique identifier for patient
-});
+export default function PatientChat() {
+  const pubnub = new PubNub({
+    publishKey: 'pub-c-f9cb07fb-86cb-488d-986a-4613c3a7b26e',
+    subscribeKey: 'sub-c-9005caf0-220e-4360-9b5e-ccb4e4fb33e0',
+    uuid: 'patient-uuid', // Unique identifier for patient
+  });
 
-const PatientChat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
 
   useEffect(() => {
     const listener = {
-      message: (event: { message: Message, publisher: string }) => {
+      message: (event: { message: Message; publisher: string }) => {
         if (event.publisher !== 'patient-uuid') {
           setMessages((prevMessages) => [...prevMessages, event.message]);
         }
@@ -37,6 +37,8 @@ const PatientChat: React.FC = () => {
   }, []);
 
   const handleSend = () => {
+    if (!input.trim()) return; // Prevent sending empty messages
+
     const newMessage = { text: input, sender: 'Patient' };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
 
@@ -150,6 +152,4 @@ const PatientChat: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default PatientChat;
+}
