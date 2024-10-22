@@ -34,17 +34,17 @@ export default function Detection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex flex-col items-center bg-[#F1F5FB] p-4 rounded-lg shadow">
                 <p className="text-gray-700 font-semibold">Kemungkinan Stress</p>
-                <DonutChart percentage={0} /> {/* Pass the percentage */}
+                <DonutChart percentage={10} /> {/* Pass the percentage */}
               </div>
 
               <div className="flex flex-col items-center bg-[#F1F5FB] p-4 rounded-lg shadow">
                 <p className="text-gray-700 font-semibold">Kemungkinan Anxiety</p>
-                <DonutChart percentage={0} /> {/* Pass the percentage */}
+                <DonutChart percentage={20} /> {/* Pass the percentage */}
               </div>
 
               <div className="flex flex-col items-center bg-[#F1F5FB] p-4 rounded-lg shadow">
                 <p className="text-gray-700 font-semibold">Kemungkinan Depresi</p>
-                <DonutChart percentage={0} /> {/* Pass the percentage */}
+                <DonutChart percentage={30} /> {/* Pass the percentage */}
               </div>
             </div>
           </div>

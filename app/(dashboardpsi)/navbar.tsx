@@ -40,7 +40,7 @@ export default function Sidebar() {
                 <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
               </Button>
             </Link>
-            <Link href='/dashpsi/chatpsi'>
+            <Link href='/dashpsi/chat'>
               <Button className="cursor-pointer flex items-center justify-center w-12 h-12 bg-transparent hover:bg-[#DBE5F2] transition">
                 <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
               </Button>
@@ -97,7 +97,7 @@ export default function Sidebar() {
               <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} />
             </Button>
           </Link>
-          <Link href='/dashpsi/chatpsi' onClick={() => setOpen(false)}>
+          <Link href='/dashpsi/chat' onClick={() => setOpen(false)}>
             <Button className="cursor-pointer flex items-center justify-center w-12 h-12">
               <Image src="/icons/chat-alt.png" alt="Messages" width={24} height={24} />
             </Button>

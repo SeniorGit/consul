@@ -26,7 +26,7 @@ const reasons: CardReasonProps[] = [
 const CardReason = ({ icon, title, description }: CardReasonProps) => {
   return (
     <div className="flex flex-col md:flex-row items-center md:items-center bg-[#4C82CB] shadow-md rounded-[20px] p-4 md:p-6 gap-4 md:gap-6 w-full">
-      <div className="flex-shrink-0 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden">
+      <div className="flex-shrink-0 md:w-24 md:h-24 lg:w-32 lg:h-32 overflow-hidden">
         <Image src={icon} alt={title} width={128} height={128} className="w-full h-full object-cover" />
       </div>
       <div className="text-left text-white">
