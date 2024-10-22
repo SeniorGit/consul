@@ -15,7 +15,7 @@ const reasons: CardReasonProps[] = [
       "An experienced clinical psychologist with an empathetic approach that makes patients feel truly heard and understood, and outstanding reputation for providing high-quality care to their clients. With over 15 years of experience.",
   },
   {
-    icon: "/images/cowo.png", 
+    icon: "/images/cowo.png",
     title: "Viko S.Psi, M.Psi. Psikologist",
     description:
       "An experienced clinical psychologist with an empathetic approach that makes patients feel truly heard and understood, and outstanding reputation for providing high-quality care to their clients. With over 10 years of experience.",
@@ -40,7 +40,59 @@ const CardReason = ({ icon, title, description }: CardReasonProps) => {
 // Main Discover component
 export default function Master() {
   return (
-    <section className="pt-10 bg-white" id="consulin">
+    <section className="pt-10 bg-white relative" id="consulin">
+      {/* Decorative star images */}
+      <div className="relative">
+        {/* Section for Large Screens */}
+        <div className="hidden lg:block">
+          {/* Left Star Decoration for Large Screens */}
+          <div className="absolute top-[-20px] left-[150px] w-[200px] h-[200px] z-10">
+            <Image
+              src="/icons/bintang.png"
+              alt="Star Decoration"
+              layout="fill" // Fill the parent div while maintaining the aspect ratio
+              className="object-contain"
+            />
+          </div>
+          
+          {/* Right Star Decoration for Large Screens */}
+          <div className="absolute bottom-[-550px] right-[100px] w-[200px] h-[200px] z-10">
+            <Image
+              src="/icons/bintang.png"
+              alt="Star Decoration"
+              layout="fill" // Fill the parent div while maintaining the aspect ratio
+              className="object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Section for Small Screens */}
+        <div className="lg:hidden">
+          {/* Left Star Decoration for Small Screens */}
+          <div className="absolute top-[-10px] left-[-20px] w-[150px] h-[150px] z-10">
+            <Image
+              src="/icons/bintang.png"
+              alt="Star Decoration"
+              layout="fill" // Fill the parent div while maintaining the aspect ratio
+              className="object-contain"
+            />
+          </div>
+          
+          {/* Right Star Decoration for Small Screens */}
+          <div className="absolute bottom-[-840px] right-[-20px] w-[150px] h-[150px] z-10">
+            <Image
+              src="/icons/bintang.png"
+              alt="Star Decoration"
+              layout="fill" // Fill the parent div while maintaining the aspect ratio
+              className="object-contain"
+            />
+          </div>
+        </div>
+      </div>
+
+
+
+
       <div className="container mx-auto px-5 md:px-10 lg:px-24 z-10">
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold">

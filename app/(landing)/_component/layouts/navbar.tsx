@@ -1,13 +1,15 @@
-"use client"; 
+"use client";
 import { useState } from "react";
 import { Button } from "@/components/button";
 import Link from "next/link";
 import Image from "next/image";
+
 export interface LinkProps {
   href: string;
   title: string;
   id: string;
 }
+
 const links: LinkProps[] = [
   {
     href: "#hero",
@@ -25,14 +27,21 @@ const links: LinkProps[] = [
     id: "kontak",
   },
 ];
+
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); 
+  const [selectedLink, setSelectedLink] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false); // Define isOpen state
+
+  const handleClick = (id: string) => {
+    setSelectedLink(id);
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
 
   return (
-    <nav className="bg-white fixed top-0 right-0 left-0 z-50 shadow-md">
+    <nav className="bg-white fixed top-0 right-0 left-0 z-50">
       <div className="flex items-center p-2 container mx-auto px-5 md:px-24 justify-between z-50">
         <div className="flex items-center gap-3">
-          <div className="overflow-hidden w-[40px] md:w-[80px] z-50">
+          <div className="overflow-hidden w-[40px] md:w-[80px] z-50 mr-[50px]">
             <Image
               src="/images/logo.png"
               width="0"
@@ -45,7 +54,14 @@ export default function Navbar() {
           <div className="hidden lg:flex gap-3 items-center ml-4">
             {links.map((link) => (
               <Link key={link.id} href={link.href}>
-                <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
+                <Button
+                  onClick={() => handleClick(link.id)}
+                  className={`text-sm rounded-3xl ${
+                    selectedLink === link.id
+                      ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                      : "bg-transparent text-gray-800 hover:bg-transparent"
+                  }`}
+                >
                   {link.title}
                 </Button>
               </Link>
@@ -53,14 +69,28 @@ export default function Navbar() {
           </div>
         </div>
         <div className="hidden lg:flex gap-3 items-center">
-          <Link href="/rolelog">
-            <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
-              Login
+          <Link href="/Role">
+            <Button
+              onClick={() => handleClick("register")}
+              className={`text-sm rounded-3xl ${
+                selectedLink === "register"
+                  ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                  : "bg-transparent text-gray-800 hover:bg-transparent"
+              }`}
+            >
+              Register
             </Button>
           </Link>
-          <Link href="/Role">
-            <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
-              Register
+          <Link href="/rolelog">
+            <Button
+              onClick={() => handleClick("login")}
+              className={`text-sm rounded-3xl ${
+                selectedLink === "login"
+                  ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                  : "bg-transparent text-gray-800 hover:bg-transparent"
+              }`}
+            >
+              Login
             </Button>
           </Link>
         </div>
@@ -126,19 +156,40 @@ export default function Navbar() {
           <div className="flex-1 flex flex-col items-center justify-center space-y-4">
             {links.map((link) => (
               <Link key={link.id} href={link.href}>
-                <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
+                <Button
+                  onClick={() => handleClick(link.id)}
+                  className={`text-sm rounded-3xl ${
+                    selectedLink === link.id
+                      ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                      : "bg-transparent text-gray-800 hover:bg-transparent"
+                  }`}
+                >
                   {link.title}
                 </Button>
               </Link>
             ))}
-            <Link href="/rolelog">
-              <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
-                Login
+            <Link href="/Role">
+              <Button
+                onClick={() => handleClick("register")}
+                className={`text-sm rounded-3xl ${
+                  selectedLink === "register"
+                    ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                  : "bg-transparent text-gray-800 hover:bg-transparent"
+                }`}
+              >
+                Register
               </Button>
             </Link>
-            <Link href="/Role">
-              <Button className="bg-transparent text-gray-800 hover:bg-blue-100 rounded-3xl text-sm">
-                Register
+            <Link href="/rolelog">
+              <Button
+                onClick={() => handleClick("login")}
+                className={`text-sm rounded-3xl ${
+                  selectedLink === "login"
+                    ? "bg-[#27374D] text-white hover:bg-[#27374D]"
+                    : "bg-transparent text-gray-800 hover:bg-transparent"
+                }`}
+              >
+                Login
               </Button>
             </Link>
           </div>
