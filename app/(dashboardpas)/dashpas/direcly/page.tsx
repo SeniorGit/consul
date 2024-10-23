@@ -7,37 +7,41 @@ import Link from "next/link";
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function Directly() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState([]);
-  const [displayTime, setDisplayTime] = useState("");
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedTime, setSelectedTime] = useState<string[]>([]);
+  const [displayTime, setDisplayTime] = useState<string>("");
 
-  const getDates = (date) => {
+  const getDates = (date: Date): Date[] => {
     const startDate = new Date(date);
-    startDate.setDate(startDate.getDate() - startDate.getDay());
+    startDate.setDate(startDate.getDate() - startDate.getDay()); // Start from Sunday
     return Array.from({ length: 7 }, (_, i) => {
       const newDate = new Date(startDate);
       newDate.setDate(startDate.getDate() + i);
       return newDate;
     });
   };
+  
 
   const dates = getDates(selectedDate);
 
-  const handleDateChange = (increment) => {
+  const handleDateChange = (increment: number): void => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() + increment);
     setSelectedDate(newDate);
   };
 
-  const handleTimeSelect = (time) => {
+  const handleTimeSelect = (time: string): void => {
     if (selectedTime.includes(time)) {
-      setSelectedTime(selectedTime.filter((t) => t !== time));
+      setSelectedTime(selectedTime.filter(t => t !== time));
     } else {
       if (selectedTime.length < 2) {
         setSelectedTime([...selectedTime, time]);
       }
     }
   };
+
+  
+
 
   const handleApply = () => {
     if (selectedTime.length === 2) {
