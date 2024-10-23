@@ -24,7 +24,7 @@ export default function ProfileCardPasien() {
               height={16}
             />
           </button>
-          <Link href="/dashpsi/edit">
+          <Link href="/dashpas/edit">
             <button className="p-2">
               <Image src="/icons/edit.png" alt="Edit Icon" width={16} height={16} />
             </button>
@@ -41,10 +41,10 @@ export default function ProfileCardPasien() {
             {/* Profile Image */}
             <div className="relative">
               <Image
-                src="/images/cewe.png"
+                src="/images/cowomono.png"
                 alt="Profile Image"
-                width={80}
-                height={80}
+                width={150}
+                height={150}
                 className="rounded-full"
               />
             </div>

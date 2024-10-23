@@ -93,13 +93,13 @@ export default function Dashboardpsi() {
             <div className="bg-[#D9E3F3] text-black shadow-lg rounded-lg p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
               {/* Date Tag */}
               <div className="flex items-center space-x-2">
-                <div className="bg-[#264065] text-white rounded-l-full p-2 px-4">
+                <div className="bg-white text-[#264065] rounded-l-full p-2 px-4">
                   <p className="font-semibold">12 Okt</p>
                 </div>
 
                 {/* Profile Picture */}
                 <div className="rounded-full overflow-hidden w-12 h-12">
-                  <img src="/images/cewe.png" alt="Alvito" className="object-cover w-full h-full" />
+                  <img src="/images/cowomono.png" alt="Alvito" className="object-cover w-full h-full" />
                 </div>
 
                 {/* Patient Information */}
@@ -121,7 +121,7 @@ export default function Dashboardpsi() {
 
               {/* View Details Button */}
               <div>
-                <Link href="/dashpsi/chatpsi">
+                <Link href="/dashpsi/chat">
                   <button className="bg-[#264065] text-white px-4 py-2 rounded-lg">Chat Now!</button>
                 </Link>
               </div>
@@ -137,7 +137,7 @@ export default function Dashboardpsi() {
 
                 {/* Profile Picture */}
                 <div className="rounded-full overflow-hidden w-12 h-12">
-                  <img src="/images/cewe.png" alt="Faiz" className="object-cover w-full h-full" />
+                  <img src="/images/faiz.png" alt="Faiz" className="object-cover w-full h-full" />
                 </div>
 
                 {/* Patient Information */}
