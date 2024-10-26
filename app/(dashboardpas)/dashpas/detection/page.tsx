@@ -5,7 +5,10 @@ import DonutChart from "../../component/donut";
 
 export default function Detection() {
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row p-5 gap-7" style={{ background: 'linear-gradient(to top, #ffffff 60%, #003A7C 100%)' }}>
+    <section
+      className="min-h-screen flex flex-col lg:flex-row p-5 pt-[50px] gap-7"
+      style={{ background: "linear-gradient(to top, #ffffff 60%, #003A7C 100%)" }}
+    >
       <Sidebar />
 
       {/* Main Content */}
@@ -19,34 +22,41 @@ export default function Detection() {
             <h2 className="text-md font-semibold mb-2">
               Ceritakan keluhanmu hari ini!
             </h2>
-            <div className="flex items-start space-x-4">
+            {/* Responsive Container */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-4 sm:space-y-0">
               <textarea
                 className="w-full h-[200px] p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Hari ini aku cape banget, temen temenku semua bully aku. belum lagi tugas yang numpuk"
               ></textarea>
-              <button className="px-4 py-2 bg-[#4D9CE1] text-white rounded-lg">
+              {/* Button positioned below textarea for small screens */}
+              <button className="w-full sm:w-auto px-4 py-2 bg-[#4D9CE1] text-white rounded-lg">
                 Submit
               </button>
             </div>
           </div>
-
 
           {/* Results Section */}
           <div className="mt-6">
             <h3 className="text-md font-bold mb-4">Hasil</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex flex-col items-center bg-[#CDD7E3] p-4 text-center rounded-lg shadow">
-                <p className="text-gray-700 font-semibold">Kemungkinan<br/> Stress</p>
+                <p className="text-gray-700 font-semibold">
+                  Kemungkinan<br /> Stress
+                </p>
                 <DonutChart percentage={10} /> {/* Pass the percentage */}
               </div>
 
               <div className="flex flex-col items-center bg-[#CDD7E3] p-4 text-center rounded-lg shadow">
-                <p className="text-gray-700 font-semibold">Kemungkinan<br/> Anxiety</p>
+                <p className="text-gray-700 font-semibold">
+                  Kemungkinan<br /> Anxiety
+                </p>
                 <DonutChart percentage={20} /> {/* Pass the percentage */}
               </div>
 
               <div className="flex flex-col items-center bg-[#CDD7E3] p-4 text-center rounded-lg shadow">
-                <p className="text-gray-700 font-semibold">Kemungkinan<br/> Depresi</p>
+                <p className="text-gray-700 font-semibold">
+                  Kemungkinan<br /> Depresi
+                </p>
                 <DonutChart percentage={30} /> {/* Pass the percentage */}
               </div>
             </div>

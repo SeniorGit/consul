@@ -75,7 +75,7 @@ export default function ProfileCard() {
           </div>
 
           {/* Experience */}
-          <div className="mt-4 sm:ml-[60px]">
+          <div className="mt-1 sm:ml-[60px]">
             <p className="text-sm sm:text-base text-gray-500">Pengalaman</p>
             <div className="flex items-center space-x-2 px-4 py-2 mt-2">
               <Image src="/icons/suitcaseb.png" alt="Experience Icon" width={20} height={16} />
@@ -84,7 +84,7 @@ export default function ProfileCard() {
           </div>
 
           {/* Availability */}
-          <div className="mt-4 sm:ml-[60px]">
+          <div className="mt-1 sm:ml-[60px]">
             <p className="text-sm sm:text-base font-medium text-gray-500">Set Available</p>
             <div className="flex items-center space-x-2 px-4 py-2 mt-2">
             <Image src="/icons/calendarb.png" alt="Experience Icon" width={20} height={16} />

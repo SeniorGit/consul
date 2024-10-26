@@ -68,7 +68,7 @@ export default function Discover() {
         {/* Section for Large Screens */}
         <div className="hidden lg:block">
           {/* Left Star Decoration for Large Screens */}
-          <div className="absolute top-[-100px] left-[150px] w-[200px] h-[200px] z-10">
+          <div className="absolute top-[-100px] left-[0px] w-[200px] h-[200px] z-10">
             <Image
               src="/icons/bintangbiru.png"
               alt="Star Decoration"
@@ -78,7 +78,7 @@ export default function Discover() {
           </div>
           
           {/* Right Star Decoration for Large Screens */}
-          <div className="absolute bottom-[-520px] right-[100px] w-[200px] h-[200px] z-10">
+          <div className="absolute bottom-[-480px] right-[0px] w-[200px] h-[200px] z-10">
             <Image
               src="/icons/bintangbiru.png"
               alt="Star Decoration"

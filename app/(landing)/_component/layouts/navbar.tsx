@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/button";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -54,44 +53,44 @@ export default function Navbar() {
           <div className="hidden lg:flex gap-3 items-center ml-4">
             {links.map((link) => (
               <Link key={link.id} href={link.href}>
-                <Button
+                <button
                   onClick={() => handleClick(link.id)}
-                  className={`text-sm rounded-3xl ${
+                  className={`text-sm rounded-full p-3 ${
                     selectedLink === link.id
                       ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                       : "bg-transparent text-gray-800 hover:bg-transparent"
                   }`}
                 >
                   {link.title}
-                </Button>
+                </button>
               </Link>
             ))}
           </div>
         </div>
         <div className="hidden lg:flex gap-3 items-center">
           <Link href="/Role">
-            <Button
+            <button
               onClick={() => handleClick("register")}
-              className={`text-sm rounded-3xl ${
+              className={`text-sm rounded-full p-3 ${
                 selectedLink === "register"
                   ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                   : "bg-transparent text-gray-800 hover:bg-transparent"
               }`}
             >
               Register
-            </Button>
+            </button>
           </Link>
           <Link href="/rolelog">
-            <Button
+            <button
               onClick={() => handleClick("login")}
-              className={`text-sm rounded-3xl ${
+              className={`text-sm rounded-full p-3 ${
                 selectedLink === "login"
                   ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                   : "bg-transparent text-gray-800 hover:bg-transparent"
               }`}
             >
               Login
-            </Button>
+            </button>
           </Link>
         </div>
         <div className="lg:hidden">
@@ -156,41 +155,41 @@ export default function Navbar() {
           <div className="flex-1 flex flex-col items-center justify-center space-y-4">
             {links.map((link) => (
               <Link key={link.id} href={link.href}>
-                <Button
+                <button
                   onClick={() => handleClick(link.id)}
-                  className={`text-sm rounded-3xl ${
+                  className={`text-sm rounded-full ${
                     selectedLink === link.id
                       ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                       : "bg-transparent text-gray-800 hover:bg-transparent"
                   }`}
                 >
                   {link.title}
-                </Button>
+                </button>
               </Link>
             ))}
             <Link href="/Role">
-              <Button
+              <button
                 onClick={() => handleClick("register")}
-                className={`text-sm rounded-3xl ${
+                className={`text-sm rounded-full ${
                   selectedLink === "register"
                     ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                   : "bg-transparent text-gray-800 hover:bg-transparent"
                 }`}
               >
                 Register
-              </Button>
+              </button>
             </Link>
             <Link href="/rolelog">
-              <Button
+              <button
                 onClick={() => handleClick("login")}
-                className={`text-sm rounded-3xl ${
+                className={`text-sm rounded-full ${
                   selectedLink === "login"
                     ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                     : "bg-transparent text-gray-800 hover:bg-transparent"
                 }`}
               >
                 Login
-              </Button>
+              </button>
             </Link>
           </div>
         </div>

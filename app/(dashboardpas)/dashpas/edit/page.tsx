@@ -14,7 +14,7 @@ export default function Edit() {
 
   return (
     <section
-      className="min-h-screen flex flex-col lg:flex-row p-5 gap-7"
+      className="min-h-screen flex flex-col lg:flex-row p-5 pt-[50px] gap-7"
       style={{
         background: "linear-gradient(to top, #ffffff 60%, #003A7C 100%)",
       }}

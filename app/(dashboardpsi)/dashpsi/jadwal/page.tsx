@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Jadwal() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 gap-7">
+    <div className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 pt-[50px] gap-7">
       {/* Sidebar */}
       <Sidebar />
 

@@ -33,7 +33,7 @@ export default function Edit() {
   };
 
   return (
-    <section className="flex flex-col lg:flex-row min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% p-5 gap-7">
+    <section className="flex flex-col lg:flex-row min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% p-5 pt-[50px] gap-7">
       <Sidebar />
 
       {/* Main Content */}

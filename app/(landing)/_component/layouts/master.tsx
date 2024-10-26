@@ -46,7 +46,7 @@ export default function Master() {
         {/* Section for Large Screens */}
         <div className="hidden lg:block">
           {/* Left Star Decoration for Large Screens */}
-          <div className="absolute top-[-20px] left-[150px] w-[200px] h-[200px] z-10">
+          <div className="absolute top-[-20px] left-[0px] w-[200px] h-[200px] z-10">
             <Image
               src="/icons/bintang.png"
               alt="Star Decoration"
@@ -56,7 +56,7 @@ export default function Master() {
           </div>
           
           {/* Right Star Decoration for Large Screens */}
-          <div className="absolute bottom-[-550px] right-[100px] w-[200px] h-[200px] z-10">
+          <div className="absolute bottom-[-550px] right-[0px] w-[200px] h-[200px] z-10">
             <Image
               src="/icons/bintang.png"
               alt="Star Decoration"

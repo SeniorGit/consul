@@ -126,14 +126,14 @@ export default function DoctorApp() {
         {/* Back button for small screens */}
         <button
           onClick={() => setIsChatOpen(false)}
-          className="sm:block lg:hidden text-white p-2 mb-2 bg-blue-500"
+          className="sm:block lg:hidden text-white p-2 mb-2 bg-blue-500 rounded-lg"
         >
           Back
         </button>
 
         {/* Chat header */}
-        <header className="flex justify-between p-4 bg-white border-b border-gray-300">
-          <h3 className="text-gray-800">{channel.name}</h3>
+        <header className="flex justify-between p-4 bg-white border-b border-gray-300 space-x-2">
+          <h3 className="text-gray-800">chat with patient</h3>
           <h3 className="text-gray-800">Alvito</h3>
         </header>
 

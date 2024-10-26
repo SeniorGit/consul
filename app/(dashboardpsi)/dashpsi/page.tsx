@@ -8,7 +8,7 @@ import ProfileCard from '../uii/profilcol';
 import Link from 'next/link';
 export default function Dashboardpsi() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 gap-7">
+    <section className="min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% flex flex-col lg:flex-row p-5 pt-[50px] gap-7">
       <Sidebar/>
 
       {/* Main Content */}
