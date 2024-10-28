@@ -41,7 +41,7 @@ export default function Sidebar() {
             </Link>
             <Link href='/dashpas/detection' prefetch={true}>
               <div className={`cursor-pointer flex items-center justify-center w-12 h-12 ${isActive('/dashpas/detection') ? 'bg-[#27374D]' : 'bg-transparent'} hover:bg-transparent transition rounded-lg`}>
-                <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24}/>
+                <Image src="/icons/petir.png" alt="Calendar" width={24} height={24}/>
               </div>
             </Link>
             <Link href='/dashpas/chat'>
@@ -98,7 +98,7 @@ export default function Sidebar() {
           </Link>
           <Link href='/dashpas/detection' onClick={() => setOpen(false)}>
             <div className={`cursor-pointer flex items-center justify-center w-12 h-12 ${isActive('/dashpas/detection') ? 'bg-blue-500' : 'bg-transparent'}`}>
-              <Image src="/icons/calendar.png" alt="Calendar" width={24} height={24} />
+              <Image src="/icons/petir.png" alt="Calendar" width={24} height={24} />
             </div>
           </Link>
           <Link href='/dashpas/chat' onClick={() => setOpen(false)}>
