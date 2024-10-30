@@ -24,6 +24,8 @@ export default function Edit() {
     specializations: ['Stress', 'Trauma', 'Anxiety'],
   });
 
+  const [availability, setAvailability] = useState('available'); 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setProfile((prevProfile) => ({
@@ -32,22 +34,23 @@ export default function Edit() {
     }));
   };
 
+  const handleAvailabilityToggle = (status: 'available' | 'busy') => {
+    setAvailability(status);
+  };
+
   return (
     <section className="flex flex-col lg:flex-row min-h-screen bg-gradient-to-b from-[#DBE5F2] from-10% p-5 pt-[50px] gap-7">
       <Sidebar />
 
-      {/* Main Content */}
       <div className="flex flex-col lg:flex-row gap-5 flex-1">
-        {/* Profile Section */}
         <div className="flex-1 flex flex-col gap-5 lg:h-[600px]">
           <div className="text-black rounded-t-lg p-5">
             <h2 className="text-2xl font-semibold">My Profile</h2>
           </div>
           <div className="flex flex-col lg:flex-row items-start gap-5 p-10">
-            {/* Profile Picture */}
             <div className="relative flex flex-col items-center justify-center w-full sm:w-auto">
               <Image
-                src="/images/cewe.png"
+                src="/images/cewe11.png"
                 alt="Profile"
                 width={128}
                 height={128}
@@ -58,11 +61,10 @@ export default function Edit() {
               </button>
             </div>
 
-            {/* Profile Info */}
             <form className="w-full lg:w-2/3 space-y-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <div>
-                  <label className={`block ${profile.name ? 'text-black' : 'text-gray-600'}`} htmlFor="name">
+                  <label htmlFor="name" className={`block ${profile.name ? 'text-black' : 'text-gray-600'}`}>
                     Name
                   </label>
                   <div className="flex items-center gap-3 bg-[#27374D] rounded px-4 py-2 mt-1">
@@ -75,8 +77,9 @@ export default function Edit() {
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label className={`block ${profile.strNumber ? 'text-black' : 'text-gray-600'}`} htmlFor="strNumber">
+                  <label htmlFor="strNumber" className={`block ${profile.strNumber ? 'text-black' : 'text-gray-600'}`}>
                     Number of STR
                   </label>
                   <div className="flex items-center gap-3 bg-[#27374D] rounded px-4 py-2 mt-1">
@@ -93,7 +96,7 @@ export default function Edit() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <div>
-                  <label className={`block ${profile.phone ? 'text-black' : 'text-gray-600'}`} htmlFor="phone">
+                  <label htmlFor="phone" className={`block ${profile.phone ? 'text-black' : 'text-gray-600'}`}>
                     Phone Number
                   </label>
                   <div className="flex items-center gap-3 bg-[#27374D] rounded px-4 py-2 mt-1">
@@ -106,8 +109,9 @@ export default function Edit() {
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label className={`block ${profile.email ? 'text-black' : 'text-gray-600'}`} htmlFor="email">
+                  <label htmlFor="email" className={`block ${profile.email ? 'text-black' : 'text-gray-600'}`}>
                     Email
                   </label>
                   <div className="flex items-center gap-3 bg-[#27374D] rounded px-4 py-2 mt-1">
@@ -123,7 +127,7 @@ export default function Edit() {
               </div>
 
               <div>
-                <label className={`block ${profile.address ? 'text-black' : 'text-gray-600'}`} htmlFor="address">
+                <label htmlFor="address" className={`block ${profile.address ? 'text-black' : 'text-gray-600'}`}>
                   Address
                 </label>
                 <div className="flex items-center gap-3 bg-[#27374D] rounded px-4 py-2 mt-1">
@@ -149,10 +153,7 @@ export default function Edit() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {profile.specializations.map((spec, index) => (
-                    <span
-                      key={index}
-                      className="bg-blue-100 text-blue-500 px-2 py-1 rounded text-xs"
-                    >
+                    <span key={index} className="bg-blue-100 text-blue-500 px-2 py-1 rounded text-xs">
                       {spec}
                     </span>
                   ))}
@@ -176,20 +177,30 @@ export default function Edit() {
             </form>
           </div>
         </div>
-
-        {/* Availability Section */}
         <div className="bg-white rounded-lg shadow-md w-auto lg:w-[400px] lg:h-[200px]">
           <div className="bg-[#27374D] p-4 rounded-t-lg">
             <h2 className="text-2xl font-semibold text-white mb-4">Set Availability</h2>
           </div>
           <div className="flex flex-col gap-4 p-5">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between bg-">
               <span className="text-black">Available</span>
-              <Switch />
+              <Switch
+                checked={availability === 'available'}
+                onCheckedChange={() => handleAvailabilityToggle('available')}
+                className={`${
+                  availability === 'available' ? 'bg-green-500' : 'bg-gray-300'
+                } transition-colors duration-300`}
+              />
             </div>
             <div className="flex items-center justify-between">
               <span className="text-black">Busy</span>
-              <Switch />
+              <Switch
+                checked={availability === 'busy'}
+                onCheckedChange={() => handleAvailabilityToggle('busy')}
+                className={`${
+                  availability === 'busy' ? 'bg-red-500' : 'bg-gray-300'
+                } transition-colors duration-300`}
+              />
             </div>
           </div>
         </div>

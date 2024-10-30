@@ -5,12 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Navimg() {
-  const [selectedLink, setSelectedLink] = useState<string>(""); // State to track the active button
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu
+  const [selectedLink, setSelectedLink] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false); 
 
   const handleClick = (linkId: string) => {
-    setSelectedLink(linkId); // Set the active link
-    setIsOpen(false); // Close mobile menu when a link is clicked
+    setSelectedLink(linkId);
+    setIsOpen(false); 
   };
 
   return (
@@ -25,12 +25,11 @@ export default function Navimg() {
             className="w-full h-auto"
             alt="logo consulin"
           />
-          
-          {/* Display Home Button only on large screens */}
+
           <div className="hidden lg:block">
             <Link href="/">
               <Button
-                onClick={() => handleClick("home")} // Handle click to set the active link
+                onClick={() => handleClick("home")} 
                 className={`bg-transparent hover:bg-blue-100 rounded-3xl text-sm ${
                   selectedLink === "home" ? "bg-blue-900 text-white" : "text-gray-800"
                 }`}
@@ -41,7 +40,6 @@ export default function Navimg() {
           </div>
         </div>
 
-        {/* Hamburger Button for Small Screens */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -74,7 +72,7 @@ export default function Navimg() {
         <div className="hidden lg:flex gap-3 items-center">
           <Link href="/rolelog">
             <Button
-              onClick={() => handleClick("login")} // Handle click to set the active link
+              onClick={() => handleClick("login")} 
               className={`bg-transparent hover:bg-blue-100 rounded-3xl text-sm ${
                 selectedLink === "login" ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                   : "bg-transparent text-gray-800 hover:bg-transparent"
@@ -85,7 +83,7 @@ export default function Navimg() {
           </Link>
           <Link href="/Role">
             <Button
-              onClick={() => handleClick("register")} // Handle click to set the active link
+              onClick={() => handleClick("register")} 
               className={`bg-transparent hover:bg-blue-100 rounded-3xl text-sm ${
                 selectedLink === "register" ? "bg-[#27374D] text-white hover:bg-[#27374D]"
                   : "bg-transparent text-gray-800 hover:bg-transparent"
@@ -97,7 +95,6 @@ export default function Navimg() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden fixed inset-0 bg-white z-40 flex flex-col">
           <div className="absolute top-5 right-5">

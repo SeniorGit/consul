@@ -29,11 +29,11 @@ const links: LinkProps[] = [
 
 export default function Navbar() {
   const [selectedLink, setSelectedLink] = useState<string>("");
-  const [isOpen, setIsOpen] = useState(false); // Define isOpen state
+  const [isOpen, setIsOpen] = useState(false); 
 
   const handleClick = (id: string) => {
     setSelectedLink(id);
-    setIsOpen(false); // Close the menu when a link is clicked
+    setIsOpen(false); 
   };
 
   return (

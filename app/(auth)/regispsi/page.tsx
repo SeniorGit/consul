@@ -8,21 +8,19 @@ export default function Registerpsi() {
       className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-cover bg-center"
       id="regispsi"
       style={{
-        backgroundImage: `url(/images/background.png)`, // Set your background image here
+        backgroundImage: `url(/images/background.png)`, 
       }}
     >
-      {/* Back Button and Logo */}
       <div className="absolute top-0 left-0 m-6 flex items-center space-x-4 z-10">
         <Image src="/images/logo2.png" alt="Logo" width={60} height={60} className="mr-2" />
         <Link href="/Role">
-          <Button className="bg-transparent text-black font-bold hover:bg-blue-100 rounded-3xl text-sm flex items-center text-white">
+          <Button className="bg-transparent font-bold hover:bg-blue-100 rounded-3xl text-sm flex items-center text-white">
             <Image src="/icons/arrow-down.png" alt="Back arrow" width={24} height={24} className="mr-2 filter-white" />
             Back
           </Button>
         </Link>
       </div>
 
-      {/* Main Content: Stacked for sm and md screens */}
       <div className="flex flex-col items-left justify-center w-full lg:w-1/2 p-6 md:p-10 lg:px-20 mt-24 lg:mt-0 text-center lg:text-left">
         <h1 className="text-2xl lg:text-4xl font-bold text-white leading-snug lg:leading-normal">
           Have a nice day and don&apos;t forget to take care of your health!
@@ -31,7 +29,6 @@ export default function Registerpsi() {
           Start your new journey!
         </p>
 
-        {/* Login Button */}
         <Link href="/loginpsi">
           <button className="mt-6 w-[200px] bg-[#4C82CB] text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition duration-300">
             Login
@@ -39,9 +36,7 @@ export default function Registerpsi() {
         </Link>
       </div>
 
-      {/* Form Container */}
       <div className="flex flex-col lg:flex-row items-center w-full lg:w-1/2 p-6 md:p-10 lg:px-16 mx-auto min-h-screen lg:mt-0">
-        {/* Form Section */}
         <div className="w-full flex flex-col space-y-6 shadow-lg rounded-lg p-8 relative z-10">
           <h1 className="text-2xl lg:text-3xl font-semibold text-left text-white">Create new account</h1>
           <p className="text-left text-white">
@@ -115,7 +110,6 @@ export default function Registerpsi() {
               />
             </div>
 
-            {/* Right-Aligned Register Button */}
             <div className="flex justify-end">
               <button
                 type="submit"

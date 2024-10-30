@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useState } from "react";
 import { DateRange } from "react-day-picker";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon } from "@radix-ui/react-icons";
@@ -25,34 +25,29 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-// Define the validation schema
 const FormSchema = z.object({
   dateRange: z.object({
-    from: z.date({
-      required_error: "Start date is required.",
-    }),
-    to: z.date({
-      required_error: "End date is required.",
-    }).nullable(),
+    from: z.date({ required_error: "Start date is required." }),
+    to: z.date({ required_error: "End date is required." }).nullable(),
   }),
 });
 
 export function Availability() {
-  const [dateRange, setDateRange] = React.useState<DateRange | undefined>(undefined);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
-  // Handle form submission
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  const onSubmit = (data: z.infer<typeof FormSchema>) =>
     toast({
       title: "You submitted the following values:",
       description: (
@@ -61,17 +56,15 @@ export function Availability() {
         </pre>
       ),
     });
-  }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-white rounded p-4">
-        {/* Title: Set Your Availability */}
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 bg-white rounded p-4"
+      >
         <h2 className="text-xl font-bold">Set Your Availability</h2>
-
-        {/* Grid layout with one column */}
         <div className="grid grid-cols-1 gap-6">
-          {/* Date Range Picker */}
           <div className="bg-white rounded-md shadow-md p-4">
             <FormField
               control={form.control}
@@ -82,7 +75,7 @@ export function Availability() {
                     <PopoverTrigger asChild>
                       <FormControl>
                         <Button
-                          variant={"outline"}
+                          variant="outline"
                           className={cn(
                             "w-full pl-3 text-left font-normal",
                             !dateRange?.from && !dateRange?.to && "text-muted-foreground"
@@ -119,11 +112,8 @@ export function Availability() {
               )}
             />
           </div>
-
-          {/* Time Selection Section */}
           <div className="bg-white rounded-md shadow-md p-2">
             <FormLabel>Select Time</FormLabel>
-            {/* Select Component */}
             <div className="mt-4">
               <Select>
                 <SelectTrigger className="w-full">
@@ -140,8 +130,6 @@ export function Availability() {
               </Select>
             </div>
           </div>
-
-          {/* Action Buttons: Positioned at the bottom of the layout */}
           <div className="flex justify-end space-x-3 mt-4">
             <Button variant="outline" className="w-auto px-6">
               Cancel

@@ -1,20 +1,25 @@
+'use client'
 import Image from "next/image";
 import Sidebar from "../../navbar";
 import ProfileCardPasien from "../../component/profilecard";
 import Link from "next/link";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function Booking() {
+  const handleBookingClick = () => {
+    toast.success("Booking Approved!", {
+      position: "bottom-right",
+    });
+  };
+
   return (
     <section
       className="min-h-screen flex flex-col lg:flex-row p-4 sm:p-5 md:p-7 pt-[50px] gap-5"
       style={{ background: "linear-gradient(to top, #ffffff 60%, #003A7C 100%)" }}
     >
       <Sidebar />
-
-      {/* Main Content */}
       <main className="flex-1 p-4 sm:p-6 lg:p-7">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Psychologists List Section */}
           <div className="lg:col-span-2">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
               Psychologists
@@ -22,7 +27,6 @@ export default function Booking() {
             <p className="text-white mb-4 sm:mb-6 text-sm md:text-base">
               Results for Psychologists near you via chat
             </p>
-
             <div className="space-y-4 lg:space-y-6">
               {[
                 {
@@ -92,9 +96,7 @@ export default function Booking() {
                         <div className="flex items-center space-x-2">
                           <div
                             className={`w-3 h-3 rounded-full ${
-                              psychologist.isAvailable
-                                ? "bg-green-500"
-                                : "bg-red-500"
+                              psychologist.isAvailable ? "bg-green-500" : "bg-red-500"
                             }`}
                           ></div>
                           <p className="text-xs sm:text-sm font-semibold">
@@ -128,18 +130,15 @@ export default function Booking() {
                         psychologist.isAvailable ? "bg-[#4C82CB]" : "bg-gray-500"
                       } text-white`}
                       disabled={!psychologist.isAvailable}
+                      onClick={handleBookingClick}
                     >
-                      {psychologist.isAvailable
-                        ? "Book Appointment"
-                        : "Unavailable"}
+                      {psychologist.isAvailable ? "Book Appointment" : "Unavailable"}
                     </button>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Profile Section */}
           <div className="flex flex-col justify-between">
             <div className="flex-1 min-h-[280px] lg:min-h-full">
               <ProfileCardPasien />
@@ -185,6 +184,7 @@ export default function Booking() {
           </div>
         </div>
       </main>
+      <Toaster />
     </section>
   );
 }

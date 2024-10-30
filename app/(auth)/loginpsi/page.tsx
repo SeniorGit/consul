@@ -6,10 +6,8 @@ export default function Login() {
   return (
     <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-cover bg-center" id="loginPage"
       style={{
-        backgroundImage: `url(/images/background.png)`, // Set your background image here
+        backgroundImage: `url(/images/background.png)`, 
       }}>
-      
-      {/* Back Button and Logo */}
       <div className="absolute top-0 left-0 m-6 flex items-center space-x-4 z-10">
         <Image src="/images/logo2.png" alt="Logo" width={60} height={60} className="mr-2" />
         <Link href="/rolelog">
@@ -20,10 +18,8 @@ export default function Login() {
         </Link>
       </div>
 
-      {/* Main content wrapper to ensure everything is stacked properly on small and medium screens */}
       <div className="flex flex-col items-center justify-center w-full lg:flex-row mt-20 lg:mt-0 p-6 md:p-10 lg:px-24">
         
-        {/* Left Side - Welcome Text */}
         <div className="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             Have a nice day and don&apos;t forget to take care of your health!
@@ -32,7 +28,6 @@ export default function Login() {
             Start your new journey!
           </p>
 
-          {/* Register Button */}
           <Link href="/regispsi">
             <button className="w-[200px] bg-[#4C82CB] text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition duration-300">
               Register
@@ -40,7 +35,6 @@ export default function Login() {
           </Link>
         </div>
 
-        {/* Right Side - Login Form */}
         <div className="w-full lg:w-1/2 shadow-lg rounded-lg p-6 md:p-8 lg:p-10 z-10">
           <h1 className="text-3xl lg:text-4xl font-bold text-left text-white">Welcome Back 👋</h1>
           <p className="text-left mb-4 font-semibold text-white">
@@ -68,7 +62,6 @@ export default function Login() {
               />
             </div>
 
-            {/* Login Button */}
             <div className="flex justify-end">
               <Link href="/dashpsi">
                 <Button

@@ -19,12 +19,9 @@ import {
 export default function Sidebar() {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname(); 
-
   const isActive = (path: string) => pathname === path;
-
   return (
     <div>
-      {/* Sidebar visible on large screens and above */}
       <div className="hidden lg:flex w-20 bg-gradient-to-b from-[#264065] to-[#B6CBE5] text-white flex-col justify-between items-center py-6 rounded-[10px] sticky top-0 ">
         <div className="flex flex-col items-center">
           <div className="text-[15px] font-semibold mb-6">Consulin</div>
@@ -77,13 +74,11 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* Hamburger for smaller screens */}
       <div className="lg:hidden fixed top-0 left-0 right-0 flex items-center justify-between p-4 bg-[#27374D] text-white z-50 shadow-lg">
         <div className="text-[15px] font-semibold">Consulin</div>
         <Hamburger toggled={isOpen} toggle={setOpen} color="#F5F5F7" />
       </div>
 
-      {/* Hamburger Menu */}
       {isOpen && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-[#27374D] flex flex-col items-center justify-center text-white gap-4 z-40">
           <Link href='/dashpsi' onClick={() => setOpen(false)}>

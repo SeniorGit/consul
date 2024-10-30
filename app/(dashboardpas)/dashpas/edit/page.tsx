@@ -20,14 +20,11 @@ export default function Edit() {
       }}
     >
       <Sidebar />
-
       <main className="flex-1 p-4 md:p-6 lg:p-7">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Side Profile Section */}
           <div className="lg:col-span-2">
             <h1 className="text-3xl font-bold text-white mb-5">Profile</h1>
             <p className="text-white mb-5">Complete your profile</p>
-
             <div className="bg-white p-6 rounded-lg shadow-lg space-y-6">
               <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-6">
                 <div className="flex flex-col items-center">
@@ -40,8 +37,6 @@ export default function Edit() {
                   />
                   <button className="text-blue-500 mt-2">Change photo</button>
                 </div>
-
-                {/* Form Section */}
                 <div className="flex-1 w-full">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -53,7 +48,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div>
                       <label className="block text-gray-600">Last Name</label>
                       <input
@@ -63,7 +57,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div className="col-span-2">
                       <label className="block text-gray-600">Phone Number</label>
                       <input
@@ -73,7 +66,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div className="col-span-2">
                       <label className="block text-gray-600">Email</label>
                       <input
@@ -83,7 +75,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div className="col-span-2">
                       <label className="block text-gray-600">Alamat</label>
                       <input
@@ -93,7 +84,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div>
                       <label className="block text-gray-600">Berat</label>
                       <input
@@ -103,7 +93,6 @@ export default function Edit() {
                         className="w-full border rounded-lg p-2 mt-1 bg-[#4C82CB] text-white"
                       />
                     </div>
-
                     <div>
                       <label className="block text-gray-600">Tinggi</label>
                       <input
@@ -114,7 +103,6 @@ export default function Edit() {
                       />
                     </div>
                   </div>
-
                   <div className="flex justify-between mt-4">
                     <button className="bg-black text-white px-4 py-2 rounded-lg">
                       Log out
@@ -127,8 +115,6 @@ export default function Edit() {
               </div>
             </div>
           </div>
-
-          {/* Treatment Section */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
               Your Treatment
@@ -141,9 +127,7 @@ export default function Edit() {
                 />
               </span>
             </h2>
-
             <div className="space-y-4">
-              {/* Treatment Card 1 */}
               <div className="bg-[#DBE5F2] p-4 rounded-xl shadow-md flex items-start space-x-4">
                 <Image
                   src="/images/cewe.png"
@@ -172,8 +156,6 @@ export default function Edit() {
                   </button>
                 </div>
               </div>
-
-              {/* Treatment Card 2 */}
               <div className="bg-[#DBE5F2] p-4 rounded-xl shadow-md flex items-start space-x-4">
                 <Image
                   src="/images/cowosem.png"

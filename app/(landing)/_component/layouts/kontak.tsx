@@ -25,7 +25,6 @@ export default function ContactSection() {
           <Image src="/icons/kanan.png" alt="Right Decorative Curve" width={500} height={500} />
         </div>
         
-        {/* Decorative images for large screens */}
         <div className="absolute top-0 left-0 w-[360px] h-[120px] hidden lg:block">
           <Image src="/icons/kiri.png" alt="Left Decorative Curve" width={500} height={500} />
         </div>
@@ -33,7 +32,6 @@ export default function ContactSection() {
           <Image src="/icons/kanan.png" alt="Right Decorative Curve" width={500} height={500} />
         </div>
       </div>
-
 
         <div className="container mx-auto flex flex-col lg:flex-row justify-between px-5 lg:px-24">
           <div className="flex flex-col items-center lg:items-start mb-10 lg:mb-0">

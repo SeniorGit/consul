@@ -5,7 +5,6 @@ export default function Hero() {
     <section className="pt-[50px] bg-white" id="page">
       <div className="container mx-auto px-5 md:px-10 lg:px-24 z-10">
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
-          {/* Image Section */}
           <div className="flex-1 lg:flex lg:justify-center lg:items-center">
             <div className="overflow-hidden w-full sm:w-[450px] lg:w-[550px] md:rounded-[100px] rounded-[50px] bg-white">
               <div className="flex pt-[50px]">
@@ -21,7 +20,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Text Section */}
           <div className="flex-1 text-left lg:pt-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
               <span className="text-blue-500">Welcome</span>{" "}
@@ -45,7 +43,6 @@ export default function Hero() {
               We help to deal with
             </div>
 
-            {/* Icons Section */}
             <div className="flex space-x-4 mt-6">
               <div className="overflow-hidden w-[100px] sm:w-[120px] lg:w-[150px] bg-white p-2 rounded-md">
                 <Image
@@ -57,7 +54,6 @@ export default function Hero() {
                   className="w-full h-auto"
                 />
               </div>
-              {/* Add more icons here as needed */}
             </div>
           </div>
         </div>

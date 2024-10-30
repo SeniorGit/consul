@@ -89,7 +89,7 @@ export default function DoctorApp() {
   }
 
   return (
-    <section className="min-h-screen h-screen flex flex-col lg:flex-row p-5 gap-7 w-full bg-gradient-to-b from-blue-400 to-blue-300 pt-[60px]">
+    <section className="min-h-screen h-screen flex flex-col lg:flex-row p-5 gap-7 w-full bg-gradient-to-b from-blue-400 to-blue-300 pt-[30px]">
       <Sidebar/>
       <div className={`lg:block ${isChatOpen ? 'hidden' : 'block'} w-full lg:w-1/4 h-full`}>
         <div className="bg-white p-4 shadow rounded-lg flex flex-col space-y-4 h-full">
@@ -121,9 +121,7 @@ export default function DoctorApp() {
         </div>
       </div>
 
-      {/* Main chat window */}
       <main className={`${isChatOpen ? 'block' : 'hidden'} w-full sm:w-full lg:flex lg:flex-1 flex-col bg-gray-100 rounded-lg shadow-lg h-[750px]`}>
-        {/* Back button for small screens */}
         <button
           onClick={() => setIsChatOpen(false)}
           className="sm:block lg:hidden text-white p-2 mb-2 bg-blue-500 rounded-lg"
@@ -131,13 +129,11 @@ export default function DoctorApp() {
           Back
         </button>
 
-        {/* Chat header */}
         <header className="flex justify-between p-4 bg-white border-b border-gray-300 space-x-2">
           <h3 className="text-gray-800">chat with patient</h3>
           <h3 className="text-gray-800">Alvito</h3>
         </header>
 
-        {/* Message list, taking up all available space between header and footer */}
         <section className="flex flex-col flex-1 p-4 overflow-y-auto bg-white h-full">
           <ol className="list-none">
             {messages.length === 0 ? (
@@ -177,7 +173,6 @@ export default function DoctorApp() {
           </ol>
         </section>
 
-        {/* Message input, positioned at the bottom */}
         <form className="flex p-4 bg-gray-200 border-t border-gray-300 w-full fixed bottom-0 left-0 sm:static" onSubmit={handleSend}>
           <input
             type="text"
